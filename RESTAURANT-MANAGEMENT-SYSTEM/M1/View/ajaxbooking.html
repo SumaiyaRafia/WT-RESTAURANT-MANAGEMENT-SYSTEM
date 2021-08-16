@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head >
+    
+<title>Book Room</title>
+<link rel="stylesheet" type="text/css" href="booking.css">
+
+<body>
+
+<div class="Booking">
+<center>
+<h2 style="color: black;"><b></b> </h2>
+<h2 font-size: 22px;
+font-family: cooper black;
+color: #FFF5EE; text-shadow: 2px 1px 2px #8C001A;>Please place your booking here-</h2>
+
+
+<p>UserName:</p>
+<label for="username"></label>
+<input type="text" name="username" id="username" >
+
+<br>
+
+<p>Date of Booking:</p>
+<label for="BookingDate"></label>
+<input type="Date" id="BookingDate" name="BookingDate">
+<br>
+
+<select name="Total Person">
+    <option selected disabled >Select Total Person</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    
+   
+    </select>
+    <h2><p id="p1"></p></h2>
+
+    <br><br>
+<button id="submit" onclick="submit()">Submit</button>
+
+
+ </div>
+</font>
+</head>
+</center>
+
+<script>
+        function submit() {
+  var username = document.getElementById("username").value;
+ var BookingDate = document.getElementById("BookingDate").value;
+var BedType = document.getElementById("Person").value;
+
+            if(username == "" || BookingDate == "" || Person == "") {
+                document.getElementById("p1").innerHTML = "<b> Please fill up the booking form properly";
+                document.getElementById("p1").style.color = "red";
+            }
+            else {
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        document.getElementById("p1").innerHTML = xhttp.responseText;
+                        document.getElementById("p1").style.color = "green";
+                    }
+                }
+
+                xhttp.open("POST", "ajaxbooking.php", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("username="+username+"&BookingDate="+BookingDate+"&Person="+Person);
+            }
+            
+        }
+    </script>
+</body>
+</html>

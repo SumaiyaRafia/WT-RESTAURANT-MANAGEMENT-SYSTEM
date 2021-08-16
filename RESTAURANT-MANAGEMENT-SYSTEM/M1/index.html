@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>RESTAURANT MANAGEMENT</title>
+      <body style="height: 100vh;background-size: cover; background-image:url(index.jpg);">
+</head>
+<body>
+      <center>
+      <h1>This is RESTAURANT MANAGEMENT SYSTEM </h1>
+      <p id="t1"> This is index file</p>
+      <p id="t2"> Using JS</p>
+      <button onclick="fetch()" >Click me! </button>
+      </center>
+      <script>
+      	function fetch(){
+      		var xhttp = new XMLHttpRequest();
+      		xhttp.onreadystatechange = function()
+      		{
+      			document.getElementById("t1")
+      			innerHTML = this.responseText;
+      		}
+      		xhttp.open("GET", "indexAction.php", true);
+      		xhttp.send();
+      	}
+
+
+      </script>
+
+
+</body>
+</html>
